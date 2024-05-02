@@ -18,11 +18,13 @@ export async function POST(context: APIContext) {
   const sendto = data.get("sendto")?.toString()
   const subject = data.get("subject")?.toString()
   const content = data.get("content")?.toString()
+  const html = data.get("html")?.toString()
   await transport.sendMail({
     subject: subject,
     text: content,
     to: sendto,
-    from: "noreply@prestonkwei.com"
+    from: "noreply@prestonkwei.com",
+    html: html
   })
 
   return new Response("hi")
