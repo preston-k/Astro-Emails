@@ -27,6 +27,6 @@ export async function POST(context: APIContext) {
     html: html
   })
 
-  return new Response("hi")
+  return new Response('Email sent sucessfully! TO: '+sendto+'SUB: '+subject+'CONT: '+content)
 }
 
