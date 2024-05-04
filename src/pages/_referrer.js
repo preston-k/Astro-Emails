@@ -120,7 +120,7 @@ async function twofactor() {
         document.getElementById('sucess').style.display = 'block'
         document.body.classList.add('green-screen-animation')
         setTimeout(() => {
-          window.location.replace('https://oauth.prestonkwei.com/account?id='+id+'&e='+email.replace(/\./g, ',').replace(/@/g, '_')+'&s=true&ts='+ts)
+          console.log("window.location.replace('https://oauth.prestonkwei.com/account?id='+id+'&e='+email.replace(/\./g, ',').replace(/@/g, '_')+'&s=true&ts='+ts)")
         }, 5000)
       } else {
         // Can't find auth token
