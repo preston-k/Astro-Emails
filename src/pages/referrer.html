@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check Your Email</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div id='maincontent'>
+    <h1 class='head'>Check Your Email!</h1>
+    <p>For security reasons, please check for email for a 6 digit code, then enter it below.</p>
+    <form>
+      <input type='textbox' class='numPass' placeholder='1' id='num1'></input>
+      <input type='textbox' class='numPass' placeholder='2' id='num2'></input>
+      <input type='textbox' class='numPass' placeholder='3' id='num3'></input>
+      <input type='textbox' class='numPass' placeholder='4' id='num4'></input>
+      <input type='textbox' class='numPass' placeholder='5' id='num5'></input>
+      <input type='textbox' class='numPass' placeholder='6' id='num6'></input>
+      <button class='actionbut' id='verifybut'>Verify!</button>
+    </form>
+  </div>
+  <div id='missingperms'>
+    <h1 class='head'>Access Denied</h1>
+    <p>Sorry, you are missing the permissions required to view this resource!</p>
+    <p>Please sign in again!</p>
+    <a href='https://oauth.prestonkwei.com/login'><button class='actionbut'>Sign In!</button></a>
+  </div>
+  <div id='verify'>
+    <h1 class='head'>Verifying Your Code</h1>
+    <p>Please wait while we verify and authenticate your session!</p>
+    <div class='loader'></div>
+    <p id='disable'>This is making me dizzy! Disable the animation.</p>
+  </div>
+  <div id='sucess'>
+    <h1 class='white'>Sucess!</h1>
+    <img class='statcircle' src='https://cdn.prestonkwei.com/circlewithcheck.png'>
+    <p class='pwhite'>You have been sucessfully authenticated! Please wait while we redirect you.</p>
+  </div>
+  <div id='error'>
+    <h1 class='white'>Error!</h1>
+    <img class='statcircle' src='https://cdn.prestonkwei.com/circlewithcross.png'>
+    <p class='pwhite'>Sorry, we have failed to authenticate you. Please sign in again.</p>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  <script src='script.js'></script>
+</body>
+</html>

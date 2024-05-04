@@ -1,0 +1,131 @@
+h1 {
+  font-family: 'Poppins';
+  text-align: center;
+}
+body {
+  font-family: 'Poppins';
+  text-align: center;
+}
+.head {
+  text-decoration: underline;
+}
+.actionbut {
+  width: 150px;
+  height: 50px;
+  border: 2px solid black;
+  background-color: white;
+  cursor: pointer;
+  font-family: 'Poppins';
+  font-size: 18px;
+}
+
+#missingperms {
+  display: none;
+}
+.numPass {
+  height: 80px;
+  background-color: white;
+  border: 2px solid black;
+  /* border-radius: 15px; */
+  font-family: 'Courier';
+  color: black;
+  font-size: 60px;
+  width: 55px;
+  text-align: center;
+}
+#num1 {
+  border-radius: 15px 0 0 15px;
+}
+#num6 {
+  border-radius: 0 15px 15px 0;
+}
+
+#verifybut {
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#disable {
+  font-size: 8px;
+  cursor: pointer;
+}
+
+
+@keyframes greenScreen {
+  0% {
+      background-color: white;
+  }
+  100% {
+      background-color: green;
+  }
+}
+
+/* body {
+  animation: greenScreen .5s ease-in-out forwards;
+} */
+
+.statcircle {
+  width: 20%;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.white {
+  font-size: 100px;
+  color: white;
+  margin-bottom: 0px;
+}
+.pwhite {
+  color: white;
+}
+#verify {
+  display: none;
+}
+
+@keyframes greenScreen {
+  0% {
+      background-color: black;
+  }
+  100% {
+      background-color: green;
+  }
+}
+
+.green-screen-animation {
+  animation: greenScreen .5s ease-in-out forwards;
+}
+
+@keyframes redScreen {
+  0% {
+      background-color: black;
+  }
+  100% {
+      background-color: red;
+  }
+}
+
+.red-screen-animation {
+  animation: redScreen .5s ease-in-out forwards;
+}
+/* CSS LOADERS NOTHING ELSE BELOW */
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 40%;
+  height: 20px;
+  border-radius: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  background:
+   radial-gradient(farthest-side,orange 94%,#0000) left/20px 20px no-repeat
+   lightblue;
+  animation: l2 2s infinite linear;
+}
+@keyframes l2 {
+    50% {background-position:right }
+}
