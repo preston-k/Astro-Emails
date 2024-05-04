@@ -131,8 +131,13 @@ body {
 }
 
 #sucess {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   display: none;
 }
 #error {
   display: none;
+  align-items: center;
+  justify-content: center;
 }
