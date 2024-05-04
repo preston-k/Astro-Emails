@@ -119,7 +119,7 @@ async function twofactor() {
         document.getElementById('error').style.display = 'none'
         document.getElementById('sucess').style.display = 'block'
         document.body.classList.add('green-screen-animation')
-        firebaseemail = email.replace(/\./g, ',').replace(/@/g, '_')
+        let firebaseemail = email.replace(/\./g, ',').replace(/@/g, '_')
         console.log(firebaseemail)
         setTimeout(() => {
           window.location.replace('https://oauth.prestonkwei.com/account?id='+id+'&e='+firebaseemail+'&s=true&ts='+ts)
