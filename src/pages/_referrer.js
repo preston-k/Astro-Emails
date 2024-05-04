@@ -81,12 +81,16 @@ function cannot() {
 }
 const urlParams = new URLSearchParams(window.location.search)
 let email = urlParams.get('e')
+console.log('e')
 console.log(email)
 let what = urlParams.get('do')
+console.log('do')
 console.log(what)
 let ts = urlParams.get('ts')
+console.log('ts')
 console.log(ts)
 let id = urlParams.get('id')
+console.log('id')
 console.log(id)
 if (email == '' || email == null) {
   cannot()
