@@ -1,3 +1,7 @@
+import "https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"
+import "https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"
+// import "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"
+
 const firebaseConfig = {
   apiKey: "AIzaSyB-ZYqrpT04a5zOkB5uQYK3lE3CuMhkhC8",
   authDomain: "oauth-page-ad3c2.firebaseapp.com",
@@ -70,6 +74,9 @@ disableAnimation.addEventListener('click', () => {
 
 function cannot() {
   document.querySelector('#missingperms').style.display = 'block'
+  document.querySelector('#sucess').style.display = 'none'
+  document.querySelector('#error').style.display = 'none'
+  // document.body.classList.add('greens-screen-animation')
   document.querySelector('#maincontent').style.display = 'none'
 }
 const urlParams = new URLSearchParams(window.location.search)
@@ -78,7 +85,7 @@ console.log(email)
 let what = urlParams.get('do')
 console.log(what)
 let ts = urlParams.get('ts')
-console.log(what)
+console.log(ts)
 let id = urlParams.get('id')
 console.log(id)
 async function twofactor() {
@@ -98,7 +105,7 @@ async function twofactor() {
         document.getElementById('verify').style.display = 'none'
         document.getElementById('error').style.display = 'none'
         document.getElementById('sucess').style.display = 'block'
-        document.body.classList.add('green-screen-animation');
+        document.body.classList.add('green-screen-animation')
       } else {
         // Can't find auth token
         document.getElementById('maincontent').style.display = 'none'
@@ -135,15 +142,15 @@ async function generateCode() {
 }
 let code = generateCode()
 const data = new FormData()
-data.set('sendto', 'pspam4172@gmail.com')
+data.set('sendto', email)
 data.set('subject','A New Login Has Been Detected')
 // data.set('html','<h1>Hello</h1>')
 data.set('content', `Hi! A new login has been detected in your account. Please enter code: ${code}`)
-fetch("https://3400659c-5937-4c08-b29b-33fb25dac89a.prestonkwei.com/email", {
+fetch("/email", {
   method: "POST",
   body:data,
   headers: {'Content-Type': 'multipart/form-data'}
-})
+}).catch(()=>{})
 
 p6.addEventListener('input', () => {
   if (p1.value != '' && p2.value != '' && p3.value != '' && p4.value != '' && p5.value != '' && p6.value != '')

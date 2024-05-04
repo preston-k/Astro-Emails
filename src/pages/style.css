@@ -129,3 +129,10 @@ body {
 @keyframes l2 {
     50% {background-position:right }
 }
+
+#sucess {
+  display: none;
+}
+#error {
+  display: none;
+}
