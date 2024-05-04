@@ -122,7 +122,7 @@ async function twofactor() {
         let firebaseemail = email.replace(/\./g, ',').replace(/@/g, '_')
         console.log(firebaseemail)
         setTimeout(() => {
-          window.location.replace('https://oauth.prestonkwei.com/account?id='+id+'&e='+firebaseemail+'&s=true&ts='+ts)
+          console.log("window.location.replace('https://oauth.prestonkwei.com/account?id='+id+'&e='+firebaseemail+'&s=true&ts='+ts)")
         }, 5000)
       } else {
         // Can't find auth token
