@@ -119,10 +119,10 @@ async function twofactor() {
         document.getElementById('error').style.display = 'none'
         document.getElementById('sucess').style.display = 'block'
         document.body.classList.add('green-screen-animation')
-        let domainpath = window.location.pathname
-        console.log(domainpath)
+        let queryString = window.location.search.substring(1);
+        console.log(queryString);
         setTimeout(() => {
-          window.location.replace('https://oauth.prestonkwei.com/account?'+domainpath)
+          window.location.replace('https://oauth.prestonkwei.com/account?'+queryString)
         }, 5000)
       } else {
         // Can't find auth token
