@@ -88,6 +88,18 @@ let ts = urlParams.get('ts')
 console.log(ts)
 let id = urlParams.get('id')
 console.log(id)
+if (email == '' || email == null) {
+  cannot()
+}
+if (ts == '' || email == null) {
+  cannot()
+}
+if (id == '' || email == null) {
+  cannot()
+}
+if (what == '' || email == null) {
+  cannot()
+}
 async function twofactor() {
   let inputtedcode = p1.value+p2.value+p3.value+p4.value+p5.value+p6.value
   console.log(inputtedcode)
@@ -106,6 +118,9 @@ async function twofactor() {
         document.getElementById('error').style.display = 'none'
         document.getElementById('sucess').style.display = 'block'
         document.body.classList.add('green-screen-animation')
+        setTimeout(() => {
+          window.location.replace('https://oauth.prestonkwei.com/account?id='+id+'&e='+email.replace(/\./g, ',').replace(/@/g, '_')+'&s=true&ts='+ts)
+        }, 5000)
       } else {
         // Can't find auth token
         document.getElementById('maincontent').style.display = 'none'
@@ -113,7 +128,9 @@ async function twofactor() {
         document.getElementById('verify').style.display = 'none'
         document.getElementById('error').style.display = 'block'
         document.body.classList.add('red-screen-animation');
-
+        setTimeout(() => {
+          window.location.replace('https://oauth.prestonkwei.com/')
+        }, 5000)
       }
     })
     .catch(error => {
