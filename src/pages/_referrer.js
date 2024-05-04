@@ -101,6 +101,7 @@ if (what == '' || email == null) {
   cannot()
 }
 async function twofactor() {
+  let id = urlParams.get('id')
   let inputtedcode = p1.value+p2.value+p3.value+p4.value+p5.value+p6.value
   console.log(inputtedcode)
   document.getElementById('maincontent').style.display = 'none'
