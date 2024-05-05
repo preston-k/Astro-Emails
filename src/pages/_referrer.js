@@ -168,10 +168,13 @@ async function generateCode() {
           code += digit;
       }
   }
+  let d = new Date()
+  let ts = d.getTime()
   await database.ref('2fa/' + code).update({ 
     code: code,
     email: email,
-    status: 'unused'
+    status: 'unused',
+    ts: ts
   }) 
   return code
 }
