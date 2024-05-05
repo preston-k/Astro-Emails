@@ -4,13 +4,12 @@ import { createTransport } from "nodemailer"
 const config = {
   host: import.meta.env.NODEMAIL_HOST,
   port: +import.meta.env.NODEMAIL_PORT,
-  secure: import.meta.env.NODEMAIL_PORT == "465",
+  secure: +import.meta.env.NODEMAIL_PORT === 465,
   auth: {
     user: import.meta.env.NODEMAIL_USER,
     pass: import.meta.env.NODEMAIL_PASSWORD
   }
 }
-
 
 const transport = createTransport(config)
 
