@@ -112,18 +112,32 @@ async function twofactor() {
     .then(snapshot => {
       const data = snapshot.val();
       if (data) {
-        const { id, email } = data;
+        const { id, email, status } = data;
         console.log(id)
-        document.getElementById('maincontent').style.display = 'none'
-        document.getElementById('verify').style.display = 'none'
-        document.getElementById('error').style.display = 'none'
-        document.getElementById('sucess').style.display = 'block'
-        document.body.classList.add('green-screen-animation')
-        let queryString = window.location.search.substring(1);
-        console.log(queryString);
-        setTimeout(() => {
-          window.location.replace('https://oauth.prestonkwei.com/account?'+queryString)
-        }, 5000)
+        if (status == 'unused') {
+          database.ref('2fa/' + inputtedcode).update({ 
+            status: 'used'
+          }) 
+          document.getElementById('maincontent').style.display = 'none'
+          document.getElementById('verify').style.display = 'none'
+          document.getElementById('error').style.display = 'none'
+          document.getElementById('sucess').style.display = 'block'
+          document.body.classList.add('green-screen-animation')
+          let queryString = window.location.search.substring(1);
+          console.log(queryString);
+          setTimeout(() => {
+            window.location.replace('https://oauth.prestonkwei.com/account?'+queryString)
+          }, 5000)
+        } else {
+          document.getElementById('maincontent').style.display = 'none'
+          document.getElementById('sucess').style.display = 'none'
+          document.getElementById('verify').style.display = 'none'
+          document.getElementById('error').style.display = 'block'
+          document.body.classList.add('red-screen-animation');
+          setTimeout(() => {
+            window.location.replace('https://oauth.prestonkwei.com/')
+          }, 5000)
+        }
       } else {
         // Can't find auth token
         document.getElementById('maincontent').style.display = 'none'
@@ -156,7 +170,8 @@ async function generateCode() {
   }
   await database.ref('2fa/' + code).update({ 
     code: code,
-    email: email
+    email: email,
+    status: 'unused'
   }) 
   return code
 }
