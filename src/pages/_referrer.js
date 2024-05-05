@@ -169,9 +169,8 @@ async function generateCode() {
       }
   }
   let d = new Date()
-  let offset = -d.getTimezoneOffset() / 60
-  let timezone = (offset >= 0 ? '+' : '') + offset
-  let ts = d.toISOString().replace('T', ' ').slice(0, 19) + ' UTC' + timezone
+  let ts = d.toString()
+  
 
   await database.ref('2fa/' + code).update({ 
     code: code,
