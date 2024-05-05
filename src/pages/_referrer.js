@@ -127,7 +127,7 @@ async function twofactor() {
           console.log(queryString);
           setTimeout(() => {
             window.location.replace('https://oauth.prestonkwei.com/account?'+queryString)
-          }, 5000)
+          }, 4000)
         } else {
           document.getElementById('maincontent').style.display = 'none'
           document.getElementById('sucess').style.display = 'none'
@@ -136,7 +136,7 @@ async function twofactor() {
           document.body.classList.add('red-screen-animation');
           setTimeout(() => {
             window.location.replace('https://oauth.prestonkwei.com/')
-          }, 5000)
+          }, 4000)
         }
       } else {
         // Can't find auth token
