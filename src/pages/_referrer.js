@@ -75,7 +75,7 @@ async function twofactor() {
           let queryString = window.location.search.substring(1);
           console.log(queryString);
           setTimeout(() => {
-            window.location.replace('https://oauth.prestonkwei.com/account?'+queryString)
+            window.location.replace('https://oauth.prestonkwei.com/account?'+queryString+'&immediate=authtoken')
           }, 4000)
         } else {
           document.getElementById('maincontent').style.display = 'none'
