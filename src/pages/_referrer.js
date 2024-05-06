@@ -134,7 +134,7 @@ let sendEmail = email.replace(/,/g, '.').replace(/_/g, '@')
 let code = generateCode()
 const data = new FormData()
 data.set('sendto', sendEmail)
-data.set('subject','A New Login Has Been Detected')
+data.set('subject','Here\'s the login code you requested!')
 data.set('html',`<h1>Hello!</h1><p>A new login has been detected in your account. Please enter code: ${await code}</p>`)
 data.set('content', `Hello! A new login has been detected in your account. Please enter code: ${await code}`)
 fetch("/email", {
