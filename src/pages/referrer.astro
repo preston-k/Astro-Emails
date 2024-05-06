@@ -6,7 +6,7 @@ import "./style.css"
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Check Your Email</title>
+  <title>Two Factor Verification</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins"/>
   <link rel="icon" href="https://cdn.prestonkwei.com/personalwebsitefavicon.png">
 </head>
@@ -19,24 +19,16 @@ import "./style.css"
       <div class='input-container'>
         <input class='input-element'  placeholder='123456' id='num' autocomplete='off' maxlength='6' />
 
-        <!-- <div class='input-border'>
-          <div class='input-cell'></div>
-          <div class='input-cell'></div>
-          <div class='input-cell'></div>
-          <div class='input-cell'></div>
-          <div class='input-cell'></div>
-          <div class='input-cell'></div>
-        </div> -->
       </div>
-
-      <!-- <input type='text' class='numPass' placeholder='1' id='num1'></input>
-      <input type='text' class='numPass' placeholder='2' id='num2'></input>
-      <input type='text' class='numPass' placeholder='3' id='num3'></input>
-      <input type='text' class='numPass' placeholder='4' id='num4'></input>
-      <input type='text' class='numPass' placeholder='5' id='num5'></input>
-      <input type='text' class='numPass' placeholder='6' id='num6'></input> -->
       <button class='actionbut' id='verifybut'>Verify!</button>
     </form>
+
+    <h3 id='noget'><u>Didn't get a code?</u></h3>
+    <div id='nocodeinfo'>
+      <p class='list'>↳ Wait a couple minutes -- emails may take a bit to arrive.</p>
+      <p class='list'>↳ Check your spam or junk folder -- sometimes emails get sent there instead.</p>
+      <p class='list'>↳ Reload this page to send another code -- only do this if you don't have a code after 5 minutes so you don't get spammed with emails.</p>
+    </div>
   </div>
   <div id='missingperms'>
     <h1 class='head'>Access Denied</h1>

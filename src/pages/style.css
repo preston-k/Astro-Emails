@@ -196,3 +196,20 @@ body {
 .input-container:focus-within .input-cell {
   outline: 1px solid blue;
 }
+
+.list {
+  font-size: 14px;
+  margin: 5px;
+}
+
+#noget {
+  font-size: 24px;
+  margin-bottom: 2px;
+}
+#nocodeinfo {
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 250px;
+}
