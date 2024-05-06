@@ -131,7 +131,7 @@ async function generateCode() {
 }
 
 let sendEmail = email.replace(/,/g, '.').replace(/_/g, '@')
-let hiddenemail = sendEmail.replace(/^(..).*(.)(@.)(.*).(.*)$/, '$1***$2$3$4*$5')
+let hiddenemail = sendEmail.replace(/^(..).*(.)(@.)(.*)(..)(\..*)$/, '$1***$2$3$4**$5$6')
 document.querySelector('#sentto').innerHTML = `We just sent an email containing a 6 digit code to ${hiddenemail}. Please enter it below to protect your account!`
 let code = generateCode()
 const data = new FormData()
