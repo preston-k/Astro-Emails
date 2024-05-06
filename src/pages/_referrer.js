@@ -84,7 +84,7 @@ async function twofactor() {
           document.getElementById('error').style.display = 'block'
           document.body.classList.add('red-screen-animation');
           setTimeout(() => {
-            window.location.replace('https://oauth.prestonkwei.com/')
+            window.location.replace('https://oauth.prestonkwei.com/login?f2fa=true')
           }, 4000)
         }
       } else {
@@ -95,7 +95,7 @@ async function twofactor() {
         document.getElementById('error').style.display = 'block'
         document.body.classList.add('red-screen-animation');
         setTimeout(() => {
-          window.location.replace('https://oauth.prestonkwei.com/')
+          window.location.replace('https://oauth.prestonkwei.com/login?f2fa=true')
         }, 5000)
       }
     })
