@@ -15,12 +15,26 @@ import "./style.css"
     <h1 class='head'>Check Your Email!</h1>
     <p>For security reasons, please check for email for a 6 digit code, then enter it below.</p>
     <form>
-      <input type='text' class='numPass' placeholder='1' id='num1'></input>
+      
+      <div class='input-container'>
+        <input class='input-element'  placeholder='123456' id='num' autocomplete='off' maxlength='6' />
+
+        <!-- <div class='input-border'>
+          <div class='input-cell'></div>
+          <div class='input-cell'></div>
+          <div class='input-cell'></div>
+          <div class='input-cell'></div>
+          <div class='input-cell'></div>
+          <div class='input-cell'></div>
+        </div> -->
+      </div>
+
+      <!-- <input type='text' class='numPass' placeholder='1' id='num1'></input>
       <input type='text' class='numPass' placeholder='2' id='num2'></input>
       <input type='text' class='numPass' placeholder='3' id='num3'></input>
       <input type='text' class='numPass' placeholder='4' id='num4'></input>
       <input type='text' class='numPass' placeholder='5' id='num5'></input>
-      <input type='text' class='numPass' placeholder='6' id='num6'></input>
+      <input type='text' class='numPass' placeholder='6' id='num6'></input> -->
       <button class='actionbut' id='verifybut'>Verify!</button>
     </form>
   </div>

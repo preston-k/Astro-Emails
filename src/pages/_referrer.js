@@ -16,58 +16,7 @@ firebase.initializeApp(firebaseConfig)
 let database = firebase.database() 
 
 let disableAnimation = document.querySelector('#disable')
-let p1 = document.querySelector('#num1')
-let p2 = document.querySelector('#num2')
-let p3 = document.querySelector('#num3')
-let p4 = document.querySelector('#num4')
-let p5 = document.querySelector('#num5')
-let p6 = document.querySelector('#num6')
-p1.addEventListener("input", () => {
-  if (p1.value != "") {
-    p2.focus()
-  } else {
-  }
-})
-p2.addEventListener("input", () => {
-  if (p2.value != "") {
-    p3.focus()
-  } else {
-    p1.focus()
-  }
-})
-p3.addEventListener("input", () => {
-  if (p3.value != "") {
-    p4.focus()
-  } else {
-    p2.focus()
-  }
-})
-p4.addEventListener("input", () => {
-  if (p4.value != "") {
-    p5.focus()
-  } else {
-    p3.focus()
-  }
-})
-p5.addEventListener("input", () => {
-  if (p5.value != "") {
-    p6.focus()
-  } else {
-    p4.focus()
-  }
-})
-p6.addEventListener("input", () => {
-  if (p6.value != "") {
-    p6.focus()
-  } else {
-    p5.focus()
-  }
-})
 
-p6.addEventListener('input', () => {
-  if (p1.value != '' && p2.value != '' && p3.value != '' && p4.value != '' && p5.value != '' && p6.value != '')
-  twofactor()
-})
 disableAnimation.addEventListener('click', () => {
   document.querySelector('#loader').styles.display = 'none'
 })
@@ -102,7 +51,7 @@ if (what == '' || email == null) {
 }
 async function twofactor() {
   let id = urlParams.get('id')
-  let inputtedcode = p1.value+p2.value+p3.value+p4.value+p5.value+p6.value
+  let inputtedcode = document.querySelector('#num').value
   console.log(inputtedcode)
   document.getElementById('maincontent').style.display = 'none'
   document.getElementById('sucess').style.display = 'none'
@@ -186,14 +135,15 @@ let code = generateCode()
 const data = new FormData()
 data.set('sendto', sendEmail)
 data.set('subject','A New Login Has Been Detected')
-data.set('html','<h1>Hello!</h1><p>A new login has been detected in your account. Please enter code: ${await code}</p>')
+data.set('html',`<h1>Hello!</h1><p>A new login has been detected in your account. Please enter code: ${await code}</p>`)
 data.set('content', `Hello! A new login has been detected in your account. Please enter code: ${await code}`)
 fetch("/email", {
   method: "POST",
   body:data,
 }).catch(()=>{})
 
-p6.addEventListener('input', () => {
-  if (p1.value != '' && p2.value != '' && p3.value != '' && p4.value != '' && p5.value != '' && p6.value != '')
-  twofactor()
+document.querySelector('#num').addEventListener('input', () => {
+  if (document.querySelector('#num').value.length == 6) {
+    twofactor()
+  }
 })
