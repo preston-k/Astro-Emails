@@ -2,7 +2,12 @@ function uuid() {
   let generated = self.crypto.randomUUID() 
   return generated
 }
-
+const urlParams = new URLSearchParams(window.location.search)
+let now = urlParams.get('now')
+if (now == 'true') {
+  document.querySelector('#main').style.display = 'none'
+  document.querySelector('#reset-content').style.display = 'block'
+}
 let resetform = document.querySelector('#emailinputform').addEventListener('submit', (event) => {
   let email = document.querySelector('#emailresetbox').value
   event.preventDefault()

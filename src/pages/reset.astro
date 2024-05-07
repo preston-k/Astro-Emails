@@ -13,18 +13,23 @@ import "./style.css"
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script> -->
 </head>
 <body>
-  <u><h1 class='h1reset'>Reset Your Password</h1></u>
-  <p class='preset'>Forgot your password? Reset it by completing the form below!</p>
-  <div id='prelim'>
-    <form id='emailinputform'>
-      <input type='email' id='emailresetbox' placeholder='Account Email Address' required autocomplete='off'>
-      <!-- <div class="g-recaptcha" id='captcha' data-sitekey="6LcNVF8pAAAAABOE0DCykNQ-Zmni7UjgDOgDDaxL" background-color='white'></div> -->
-      <button type='submit' id='resetbut'>Reset!</button>
-    </form>
+  <div id='main'>
+    <u><h1 class='h1reset'>Reset Your Password</h1></u>
+    <p class='preset'>Forgot your password? Reset it by completing the form below!</p>
+    <div id='prelim'>
+      <form id='emailinputform'>
+        <input type='email' id='emailresetbox' placeholder='Account Email Address' required autocomplete='off'>
+        <!-- <div class="g-recaptcha" id='captcha' data-sitekey="6LcNVF8pAAAAABOE0DCykNQ-Zmni7UjgDOgDDaxL" background-color='white'></div> -->
+        <button type='submit' id='resetbut'>Reset!</button>
+      </form>
+    </div>
+    <div class="loader"></div>
+    <div id='emailcheck'>
+      <h1>Check Your Email!</h1>
+    </div>
   </div>
-  <div class="loader"></div>
-  <div id='emailcheck'>
-    <h1>Check Your Email!</h1>
+  <div id='reset-content'>
+    <h1>Pick a New Password</h1>
   </div>
   <!-- <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script> -->
   <!-- <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script> -->
