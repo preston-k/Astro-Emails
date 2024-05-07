@@ -13,6 +13,7 @@ let resetform = document.querySelector('#emailinputform').addEventListener('subm
   event.preventDefault()
   console.log('Email Submitted!')
   document.querySelector('#prelim').style.display = 'none'
+  document.querySelector('#prelimtitles').style.display = 'none'
   document.querySelector('.loader').style.display = 'block'
   const data = new FormData()
   data.set('sendto', email)

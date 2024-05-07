@@ -14,8 +14,10 @@ import "./style.css"
 </head>
 <body>
   <div id='main'>
-    <u><h1 class='h1reset'>Reset Your Password</h1></u>
-    <p class='preset'>Forgot your password? Reset it by completing the form below!</p>
+    <div id='prelimtitles'>
+      <u><h1 class='h1reset'>Reset Your Password</h1></u>
+      <p class='preset'>Forgot your password? Reset it by completing the form below!</p>
+    </div>
     <div id='prelim'>
       <form id='emailinputform'>
         <input type='email' id='emailresetbox' placeholder='Account Email Address' required autocomplete='off'>
@@ -25,7 +27,10 @@ import "./style.css"
     </div>
     <div class="loader"></div>
     <div id='emailcheck'>
-      <h1>Check Your Email!</h1>
+      <u><h1>Check Your Email!</h1></u>
+      <p>We just sent an email to the email address you provided us which contains a link to reset your password. Check your email to find the link!</p>
+      <img src='https://cdn.prestonkwei.com/emailicon.png' title='Image of an email' id='emailicon'>
+      <p class='notop-p'>You may close this tab now, open the link sent to your email!</p>
     </div>
   </div>
   <div id='reset-content'>

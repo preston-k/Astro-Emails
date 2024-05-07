@@ -278,3 +278,10 @@ body {
 #reset-content {
   display: none;
 }
+#emailicon {
+  width: 40%;
+  min-width: 150px;
+}
+.notop-p {
+  margin-top: 0px;
+}
