@@ -110,7 +110,6 @@ body {
 .red-screen-animation {
   animation: redScreen .5s ease-in-out forwards;
 }
-/* CSS LOADERS NOTHING ELSE BELOW */
 
 /* HTML: <div class="loader"></div> */
 .loader {

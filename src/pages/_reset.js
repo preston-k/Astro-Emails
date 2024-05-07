@@ -54,9 +54,19 @@ async function hashPassword(password) {
 }
 async function updateDb(pw, email) {
   console.log(pw + email)
-  await database.ref(`users/${email}/`).update({
-    pw: pw
-  })
+  try {
+    await database.ref(`users/${email}/`).update({
+      pw: pw
+    })
+    document.querySelector('#reset-content').style.display = 'none'
+    document.body.classList.add('green-screen-animation')
+    document.querySelector('#sucess').style.display = 'block'
+    setTimeout(() => {
+      window.location.replace('https://oauth.prestonkwei.com/')
+    }, 4000)
+  } catch (error) {
+
+  } 
 }
 document.querySelector('#newreset-form').addEventListener('submit', async (event) => {
   event.preventDefault()
