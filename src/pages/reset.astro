@@ -11,6 +11,7 @@ import "./style.css"
   <link rel="icon" href="https://cdn.prestonkwei.com/personalwebsitefavicon.png">
   <!-- <script src="https://www.google.com/recaptcha/api.js"></script> -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script> -->
+  
 </head>
 <body>
   <div id='main'>
@@ -38,12 +39,12 @@ import "./style.css"
     <form id='newreset-form'>
       <input type='password' placeholder='New Password' class='pwbox' required id='newpw'>
       <input type='password' placeholder='Confirm New Password' class='pwbox' required id='confirmpw'>
+      <p id='error'></p>
       <button type='submit' id='reset-submit'>Reset Password!</button>
     </form>
   </div>
-  <!-- <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script> -->
-  <!-- <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script> -->
 </body>
 </html>
-
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
 <script src="./_reset.js"></script>

@@ -12,9 +12,9 @@ const firebaseConfig = {
   appId: "1:401481049573:web:f1f9ca852e96d580cf3b0c"
 } 
 firebase.initializeApp(firebaseConfig) 
-
 let database = firebase.database() 
 
+// CHECK COOKIES TO COUNT HOW MANY TIMES IT HAS BEEN SENT, REQUIRING A 1 MINUTE COUNTDOWN TO RESEND. A RESEND BUTTON/LINK CAN BE ADDED TO THE SCREEN, AND THAT WILL PROMPT IT TO SEND ANOTHER ONE. A COOKIE IN THE BROWSER LASTS ONLY FOR THE SESSION, AND IF THAT IS THERE, ON RELOAD, IT WILL NOT SEND ANOTHER
 let disableAnimation = document.querySelector('#disable')
 
 disableAnimation.addEventListener('click', () => {

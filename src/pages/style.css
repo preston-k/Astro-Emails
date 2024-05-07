@@ -313,3 +313,8 @@ body {
   border-radius: 10px;
   min-width: 150px;
 }
+#error {
+  color: red;
+  margin: 5px;
+  font-size: 12px;
+}
