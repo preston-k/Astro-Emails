@@ -65,7 +65,14 @@ async function updateDb(pw, email) {
       window.location.replace('https://oauth.prestonkwei.com/')
     }, 4000)
   } catch (error) {
-
+    document.querySelector('#reset-content').style.display = 'none'
+    document.body.classList.add('red-screen-animation')
+    document.querySelector('#error').style.display = 'block'
+    setTimeout(() => {
+      document.querySelector('#reset-content').style.display = 'block'
+      document.body.classList.remove('red-screen-animation')
+      document.querySelector('#error').style.display = 'none'
+    }, 4000)
   } 
 }
 document.querySelector('#newreset-form').addEventListener('submit', async (event) => {
