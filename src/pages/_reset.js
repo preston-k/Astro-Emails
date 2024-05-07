@@ -27,3 +27,15 @@ let resetform = document.querySelector('#emailinputform').addEventListener('subm
   document.querySelector('.loader').style.display = 'none'
   document.querySelector('#emailcheck').style.display = 'block'
 })
+
+document.querySelector('#newreset-form').addEventListener('submit', (event) => {
+  event.preventDefault()
+  console.log('Submitted!')
+  console.log(document.querySelector('#newpw').value)
+  console.log(document.querySelector('#confirmpw').value)
+  if (document.querySelector('#newpw').value != document.querySelector('#confirmpw').value) {
+    alert('Passwords don\'t match! Please check your passwords and ensure they match.')
+  } else {
+    console.log('Passwords Match!')
+  }
+})
