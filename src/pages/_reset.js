@@ -1,4 +1,4 @@
-async function uuid() {
+function uuid() {
   let generated = self.crypto.randomUUID() 
   return generated
 }
