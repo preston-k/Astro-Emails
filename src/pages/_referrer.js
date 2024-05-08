@@ -1,7 +1,6 @@
 import "https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"
 import "https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"
 // import "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"
-
 const firebaseConfig = {
   apiKey: "AIzaSyB-ZYqrpT04a5zOkB5uQYK3lE3CuMhkhC8",
   authDomain: "oauth-page-ad3c2.firebaseapp.com",
@@ -13,7 +12,22 @@ const firebaseConfig = {
 } 
 firebase.initializeApp(firebaseConfig) 
 let database = firebase.database() 
-
+function readCookie(cookieName) {
+  const nameEQ = cookieName + '='
+  const cookiesArray = document.cookie.split(';')
+  let cd = null
+  for (let i = 0; i < cookiesArray.length; i++) {
+      let cookie = cookiesArray[i];
+      while (cookie.charAt(0) === ' ') {
+          cookie = cookie.substring(1, cookie.length)
+      }
+      if (cookie.indexOf(nameEQ) === 0) {
+          cd = cookie.substring(nameEQ.length, cookie.length);
+          break;
+      }
+  }``
+  return cd
+}
 // CHECK COOKIES TO COUNT HOW MANY TIMES IT HAS BEEN SENT, REQUIRING A 1 MINUTE COUNTDOWN TO RESEND. A RESEND BUTTON/LINK CAN BE ADDED TO THE SCREEN, AND THAT WILL PROMPT IT TO SEND ANOTHER ONE. A COOKIE IN THE BROWSER LASTS ONLY FOR THE SESSION, AND IF THAT IS THERE, ON RELOAD, IT WILL NOT SEND ANOTHER
 let disableAnimation = document.querySelector('#disable')
 
@@ -133,19 +147,48 @@ async function generateCode() {
 let sendEmail = email.replace(/,/g, '.').replace(/_/g, '@')
 let hiddenemail = sendEmail.replace(/^(..).*(.)(@.)(.*)(..)(\..*)$/, '$1***$2$3$4**$5$6')
 document.querySelector('#sentto').innerHTML = `We just sent an email containing a 6 digit code to ${hiddenemail}. Please enter it below to finish logging into your account!`
-let code = generateCode()
-const data = new FormData()
-data.set('sendto', sendEmail)
-data.set('subject','Here\'s the login code you requested')
-data.set('html',`<style>.main {border: 2px solid black;}<div id='main'></style><h1>Hello!</h1><p>A new login has been detected in your account. To protect your account, please use this code provided below. <div id='sub'>Please enter code: <strong>${await code}</strong></p><p>If you didn't request this code...</p><p>Change your password IMMEDIATELY. Somebody has your password, but don\'t worry, they do not have access to your account. We blocked their access.</div></div>`)
-data.set('content', `Hello! A new login has been detected in your account. Please enter code: ${await code}`)
-fetch("/email", {
-  method: "POST",
-  body:data,
-}).catch(()=>{})
 
+if (sessionStorage.getItem('emailsent') != 'true') {
+  let code = generateCode()
+  const data = new FormData()
+  data.set('sendto', sendEmail)
+  data.set('subject','Here\'s the login code you requested')
+  data.set('html',`<style>.main {border: 2px solid black;}<div id='main'></style><h1>Hello!</h1><p>A new login has been detected in your account. To protect your account, please use this code provided below. <div id='sub'>Please enter code: <strong>${await code}</strong></p><p>If you didn't request this code...</p><p>Change your password IMMEDIATELY. Somebody has your password, but don\'t worry, they do not have access to your account. We blocked their access.</div></div>`)
+  data.set('content', `Hello! A new login has been detected in your account. Please enter code: ${await code}`)
+  fetch("/email", {
+    method: "POST",
+    body:data,
+  }).catch(()=>{
+  })
+  let now = new Date()
+  let time = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds()
+  sessionStorage.clear()
+  sessionStorage.setItem('emailsent', 'true')
+  sessionStorage.setItem('emailsent-ts', time)
+  console.log('Email sent')
+}
 document.querySelector('#num').addEventListener('input', () => {
   if (document.querySelector('#num').value.length == 6) {
     twofactor()
+  }
+})
+document.querySelector('#sendnew').addEventListener('click', () => {
+  console.log('Send new code')
+  let sendtime = sessionStorage.getItem('emailsent-ts')
+  let curNow = new Date()
+  let curTime = curNow.getHours() + ':' + curNow.getMinutes() + ':' + curNow.getSeconds()
+  function timeToSeconds(time) {
+    let [hours, minutes, seconds] = time.split(':')
+    return Number(hours) * 3600 + Number(minutes) * 60 + Number(seconds)
+  }
+  
+  let timeDifference = Math.abs(timeToSeconds(curTime) - timeToSeconds(sendtime))
+  
+  if (timeDifference > 60) {
+    sessionStorage.clear()
+    console.log('More than 60 seconds have passed.')
+    window.location.replace(window.location.href+'&snackbar=sent')
+  } else {
+    console.log(`${60 - timeDifference} seconds more.`)
   }
 })

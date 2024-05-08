@@ -9,6 +9,8 @@ import "./style.css"
   <title>Two Factor Verification</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins"/>
   <link rel="icon" href="https://cdn.prestonkwei.com/personalwebsitefavicon.png">
+
+
 </head>
 <body>
   <div id='maincontent'>
@@ -27,7 +29,8 @@ import "./style.css"
     <div id='nocodeinfo'>
       <p class='list'>↳ Wait a couple minutes -- emails may take a bit to arrive.</p>
       <p class='list'>↳ Check your spam or junk folder -- sometimes emails get sent there instead.</p>
-      <p class='list'>↳ Reload this page to send another code -- only do this if you don't have a code after 5 minutes so you don't get spammed with emails.</p>
+      <p class='list'>↳ Still didn't receive a code? <span id='sendnew'>Send another!</span></p>
+      <p id='statuspoint'></p>
     </div>
   </div>
   <div id='missingperms'>

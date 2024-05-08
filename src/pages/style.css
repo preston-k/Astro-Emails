@@ -317,3 +317,7 @@ body {
   margin: 5px;
   font-size: 12px;
 }
+#sendnew {
+  text-decoration: underline;
+  cursor: pointer;
+}
