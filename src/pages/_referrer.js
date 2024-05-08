@@ -28,13 +28,12 @@ function readCookie(cookieName) {
   }``
   return cd
 }
-// CHECK COOKIES TO COUNT HOW MANY TIMES IT HAS BEEN SENT, REQUIRING A 1 MINUTE COUNTDOWN TO RESEND. A RESEND BUTTON/LINK CAN BE ADDED TO THE SCREEN, AND THAT WILL PROMPT IT TO SEND ANOTHER ONE. A COOKIE IN THE BROWSER LASTS ONLY FOR THE SESSION, AND IF THAT IS THERE, ON RELOAD, IT WILL NOT SEND ANOTHER
 let disableAnimation = document.querySelector('#disable')
 
 disableAnimation.addEventListener('click', () => {
   document.querySelector('#loader').styles.display = 'none'
 })
-
+// check for snackbars here
 function cannot() {
   document.querySelector('#missingperms').style.display = 'block'
   document.querySelector('#sucess').style.display = 'none'
@@ -166,6 +165,10 @@ if (sessionStorage.getItem('emailsent') != 'true') {
   sessionStorage.setItem('emailsent', 'true')
   sessionStorage.setItem('emailsent-ts', time)
   console.log('Email sent')
+  if (urlParams.append.get('snackbar') == 'sent') {
+    // SEND SNACKBAR -- ALERT IS A BACKUP
+    alert('We have sent another email containing a 6 digit code!')
+  }
 }
 document.querySelector('#num').addEventListener('input', () => {
   if (document.querySelector('#num').value.length == 6) {
