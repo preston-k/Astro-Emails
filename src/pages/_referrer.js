@@ -1,6 +1,12 @@
+
+
 import "https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"
 import "https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"
 // import "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"
+import { SnackBar } from './snackbar'
+
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyB-ZYqrpT04a5zOkB5uQYK3lE3CuMhkhC8",
   authDomain: "oauth-page-ad3c2.firebaseapp.com",
@@ -165,9 +171,13 @@ if (sessionStorage.getItem('emailsent') != 'true') {
   sessionStorage.setItem('emailsent', 'true')
   sessionStorage.setItem('emailsent-ts', time)
   console.log('Email sent')
-  if (urlParams.append.get('snackbar') == 'sent') {
-    // SEND SNACKBAR -- ALERT IS A BACKUP
-    alert('We have sent another email containing a 6 digit code!')
+  if (urlParams.get('snackbar') == 'sent') {
+    SnackBar({
+      position: 'tc',
+      message: 'Email Sent Sucessfully!',
+      status: 'green',
+      width: '80vw'
+    })
   }
 }
 document.querySelector('#num').addEventListener('input', () => {
@@ -193,5 +203,11 @@ document.querySelector('#sendnew').addEventListener('click', () => {
     window.location.replace(window.location.href+'&snackbar=sent')
   } else {
     console.log(`${60 - timeDifference} seconds more.`)
+    SnackBar({
+      position: 'tc',
+      message: `Please wait ${60 - timeDifference} seconds before sending another email!`,
+      status: 'red',
+      width: '80vw'
+    })
   }
 })
