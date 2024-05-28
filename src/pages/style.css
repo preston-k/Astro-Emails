@@ -321,3 +321,20 @@ body {
   text-decoration: underline;
   cursor: pointer;
 }
+#static {
+  display: inline;
+  color: blue;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-left: 10px;
+}
+.static-p {
+  display: inline;
+  color: blue;
+  font-size: 12px;
+}
+#static-seperator {
+  color: black;
+  font-weight: 900;
+}
