@@ -49,7 +49,7 @@ body {
 
 
 #disable {
-  font-size: 8px;
+  font-size: 10px;
   cursor: pointer;
 }
 
@@ -110,9 +110,7 @@ body {
 .red-screen-animation {
   animation: redScreen .5s ease-in-out forwards;
 }
-
-/* HTML: <div class="loader"></div> */
-.loader {
+#verify-loader {
   width: 40%;
   height: 20px;
   border-radius: 20px;
