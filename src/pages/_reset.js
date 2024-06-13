@@ -18,11 +18,13 @@ function uuid() {
   return generated
 }
 const urlParams = new URLSearchParams(window.location.search)
-let now = urlParams.get('now')
 let loginHint = urlParams.get('login_hint')
 if (loginHint != null) {
+  console.log('loginHint')
   document.querySelector('#emailresetbox').value = loginHint
 }
+
+let now = urlParams.get('now')
 if (now == 'true') {
   document.querySelector('#main').style.display = 'none'
   document.querySelector('#reset-content').style.display = 'block'
