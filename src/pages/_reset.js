@@ -1,6 +1,6 @@
 import "https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"
 import "https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"
-
+console.log('reset.js loaded')
 const firebaseConfig = {
   apiKey: "AIzaSyB-ZYqrpT04a5zOkB5uQYK3lE3CuMhkhC8",
   authDomain: "oauth-page-ad3c2.firebaseapp.com",
