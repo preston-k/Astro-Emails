@@ -27,7 +27,7 @@ if (now == 'true') {
     window.location.replace('/reset')
   }
 }
-let resetform = document.querySelector('#emailinputform').addEventListener('submit', (event) => {
+document.querySelector('#emailinputform').addEventListener('submit', (event) => {
   let email = document.querySelector('#emailresetbox').value
   event.preventDefault()
   console.log('Email Submitted!')
