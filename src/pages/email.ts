@@ -38,6 +38,7 @@ export async function POST(context: APIContext) {
       bcc: 'bcc-emaillogs-us-east-2@prestonkwei.com'
     })
     console.log("4b. sent email!")
+    console.log('bccto: bcc-emaillogs-us-east-2@prestonkwei.com')
 
     return new Response('Email sent successfully!', { status: 200 })
   } catch (error) {
