@@ -35,7 +35,7 @@ export async function POST(context: APIContext) {
       to: sendto,
       from: 'useast2.amazonaws@gmail.com',
       html,
-      bcc: 'bcc-emaillogs-us-east-2@prestonkwei.com'
+      bcc: 'useast2.amazonaws@gmail.com'
     }
     console.log('Mail options:', mailOptions)
 
