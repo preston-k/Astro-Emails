@@ -33,7 +33,7 @@ export async function POST(context: APIContext) {
       subject,
       text: content,
       to: sendto,
-      from: 'noreply@prestonkwei.com',
+      from: 'useast2.amazonaws@gmail.com',
       html,
       bcc: 'bcc-emaillogs-us-east-2@prestonkwei.com'
     }
