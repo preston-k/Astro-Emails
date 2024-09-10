@@ -21,6 +21,10 @@ export async function POST(context: APIContext) {
     const subject = data.get('subject')?.toString()
     const content = data.get('content')?.toString()
     const html = data.get('html')?.toString()
+    let from = data.get('from')?.toString()
+    if (from == null) {
+      from = 'noreply@prestonkwei.com'
+    }
     console.log('2. got form data successfully')
 
     if (!sendto || !subject || !content) {
@@ -33,7 +37,7 @@ export async function POST(context: APIContext) {
       subject,
       text: content,
       to: sendto,
-      from: 'noreply@prestonkwei.com',
+      from: from,
       html,
       bcc: 'noreply@prestonkwei.com'
     }
