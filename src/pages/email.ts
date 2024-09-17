@@ -39,13 +39,13 @@ export async function POST(context: APIContext) {
       to: sendto,
       from: from,
       html,
-      bcc: 'noreply@prestonkwei.com'
+      bcc: 'bcc.useast2.amazonaws@gmail.com'
     }
     console.log('Mail options:', mailOptions)
 
     await transport.sendMail(mailOptions)
     console.log('4b. sent email!')
-    console.log('bcc to: bcc-emaillogs-us-east-2@prestonkwei.com')
+    console.log('bcc to: bcc.useast2.amazonaws@gmail.com')
 
     return new Response('Email sent successfully!', { status: 200 })
   } catch (error) {
