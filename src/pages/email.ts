@@ -1,5 +1,6 @@
 import type { APIContext } from 'astro'
 import { createTransport } from 'nodemailer'
+import { v4 as uuidv4 } from 'uuid'
 
 const config = {
   host: import.meta.env.NODEMAIL_HOST,
@@ -20,7 +21,7 @@ export async function POST(context: APIContext) {
     const sendto = data.get('sendto')?.toString()
     const subject = data.get('subject')?.toString()
     const content = data.get('content')?.toString()
-    const html = data.get('html')?.toString()
+    let html = data.get('html')?.toString()
     let from = data.get('from')?.toString()
     if (from == null) {
       from = 'noreply@prestonkwei.com'
@@ -31,6 +32,9 @@ export async function POST(context: APIContext) {
       console.log('3a. fields are missing')
       return new Response('Missing required fields', { status: 400 })
     }
+
+    const uuid = uuidv4()
+    html += `<p style="font-size: 5pt; color: white;">${uuid}</p>`
 
     console.log('3b. sending...')
     const mailOptions = {
