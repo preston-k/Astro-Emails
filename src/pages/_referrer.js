@@ -92,7 +92,7 @@ async function twofactor() {
           document.getElementById('maincontent').style.display = 'none';
           document.getElementById('verify').style.display = 'none';
           document.getElementById('error').style.display = 'none';
-          document.getElementById('sucess').style.display = 'block';
+          document.getElementById('sucess').style.display = 'block !important';
           document.body.classList.add('green-screen-animation');
           let queryString = window.location.search.substring(1);
           console.log(queryString);
@@ -107,7 +107,7 @@ async function twofactor() {
           document.getElementById('maincontent').style.display = 'none';
           document.getElementById('sucess').style.display = 'none';
           document.getElementById('verify').style.display = 'none';
-          document.getElementById('error').style.display = 'block';
+          document.getElementById('error').style.display = 'block !important';
           document.body.classList.add('red-screen-animation');
           setTimeout(() => {
             window.location.replace(
